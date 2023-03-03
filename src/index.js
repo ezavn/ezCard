@@ -17,7 +17,7 @@ import Register from "./components/register/Register";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <RealmProvider id="wowed-ijfty">
+  <RealmProvider id="ecard-vwdtg">
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
