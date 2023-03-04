@@ -1,19 +1,11 @@
-import {
-  configureStore,
-  createAsyncThunk,
-  createEntityAdapter,
-  createSlice,
-} from "@reduxjs/toolkit";
-import { objectIdToString } from "../utils";
-import assessmentsSlice from "./assessmentsSlice";
-import usersSlice from "./usersSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import cardsSlice from "./cardsSlice";
 
 export const store = configureStore({
   reducer: {
-    assessments: assessmentsSlice.reducer,
-    users: usersSlice.reducer,
+    cards: cardsSlice.reducer,
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
     }),

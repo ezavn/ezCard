@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ResetPassword from "./components/login/ResetPassword";
 import Register from "./components/register/Register";
+import Cards from "./pages/Cards";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,7 +23,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route element={<MasterLayout />}>
-            <Route path="/" element={<Dashboard />}></Route>
+            <Route path="/" element={<Cards />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
           </Route>
           <Route path="/reset" element={<ResetPassword />}></Route>

@@ -1,17 +1,29 @@
-import React, { useContext } from "react";
-import { Form, Input, Button } from "antd";
+import React, { useContext, useState } from "react";
+import { Form, Input, Button, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { RealmContext } from "../../context/realmProvider";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const { app } = useContext(RealmContext);
   const onFinish = async (values) => {
-    await app.emailPasswordAuth
-      .registerUser({
-        email: values.email.toLowerCase(),
-        password: values.password,
-      })
-      .then((value) => console.log(value));
+    setIsLoading(true);
+    try {
+      await app.emailPasswordAuth
+        .registerUser({
+          email: values.email.toLowerCase(),
+          password: values.password,
+        })
+        .then((value) => console.log(value));
+      message.success("Tạo tài khoản thành công");
+      setIsLoading(false);
+      navigate("/");
+    } catch (error) {
+      message.error("Đã có lỗi xảy ra! Vui lòng thử lại");
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -78,6 +90,8 @@ const Register = () => {
               type="primary"
               htmlType="submit"
               className="rounded-lg shadow-sm"
+              loading={isLoading}
+              disabled={isLoading}
             >
               Register
             </Button>
