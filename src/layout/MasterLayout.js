@@ -89,7 +89,7 @@ function MasterLayout(props) {
             color: "white",
           }}
         >
-          © 2022 <a href="https://www.ezapp.vn"></a>EZ Apps. version 1.0
+          © 2023 <a href="https://www.ezapp.vn"></a>EZ Apps. version 1.0
         </p>
       </Spin>
     );
