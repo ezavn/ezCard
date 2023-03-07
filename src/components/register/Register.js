@@ -19,7 +19,7 @@ const Register = () => {
         .then((value) => console.log(value));
       message.success("Tạo tài khoản thành công");
       setIsLoading(false);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       message.error("Đã có lỗi xảy ra! Vui lòng thử lại");
       setIsLoading(false);
