@@ -40,7 +40,7 @@ const Register = () => {
           name="register"
           onFinish={onFinish}
           scrollToFirstError
-          className="py-[40px] md:py-[80px] px-[20px] md:px-[30px] flex-1 w-full"
+          className="py-[40px] md:py-[80px] px-[10px] md:px-[30px] flex-1 w-full"
           layout="vertical"
         >
           <Form.Item

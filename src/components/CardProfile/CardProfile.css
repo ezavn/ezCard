@@ -30,7 +30,7 @@
   justify-content: center;
 }
 .card {
-  max-width: 340px;
+  max-width: 320px;
   width: 100%;
   /* margin: auto; */
   overflow-y: auto;
@@ -43,11 +43,6 @@
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
-}
-@media (max-width: 767px) {
-  .card {
-    width: 300px;
-  }
 }
 .card[data-state="#about"] .card-main {
   padding-top: 0;
@@ -409,4 +404,13 @@
   font-weight: 500;
   font-family: "Jost", sans-serif;
   transition: 0.3s;
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 300px;
+  }
+  .card-company {
+    width: 250px;
+  }
 }
