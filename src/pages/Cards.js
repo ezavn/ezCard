@@ -85,7 +85,7 @@ function Cards() {
                 <QRCode
                   size={100}
                   className="ml-auto"
-                  value={`https://ecard.eza.vn/profile/${card.short}`}
+                  value={`https://ecard.ezapp.vn/profile/${card.short}`}
                 ></QRCode>
                 <h5 className="text-white font-bold text-[18px] md:text-[24px] uppercase mt-[40px] mb-[0]">
                   {card.name}
