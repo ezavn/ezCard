@@ -17,7 +17,7 @@ const cardsSlice = createSlice({
     status: "idle",
     error: "",
     search: "",
-  }),
+  }), // chuyen doi cau truc cua initial state tu [] => {}
   reducers: {
     searchCards: (state, action) => {
       state.search = action.payload;
@@ -31,8 +31,8 @@ const cardsSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchCards.fulfilled, (state, action) => {
-        const entries = action.payload;
-        cardsAdapter.setAll(state, entries);
+        const entries = action.payload; // lay toan bo cac gia trong trong thunk action creator
+        cardsAdapter.setAll(state, entries); // cap nhat state vao kho chung
         state.status = "idle";
         state.error = "";
       })
@@ -218,5 +218,7 @@ export const deleteCards = createAsyncThunk(
 //Selector
 const cardsSelectors = cardsAdapter.getSelectors((state) => state.cards);
 export const selectCards = (state) => cardsSelectors.selectAll(state);
+export const selectCardById = (id) => (state) =>
+  cardsSelectors.selectById(state, id);
 
 export default cardsSlice;

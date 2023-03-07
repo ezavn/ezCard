@@ -9,7 +9,7 @@ import InputPasswordToggle from "./InputPasswordToggle";
 import Input from "./Input";
 import Button from "./Button";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const schema = yup.object({
   email: yup
@@ -23,6 +23,7 @@ const schema = yup.object({
 });
 
 function Login(props) {
+  const navigate = useNavigate();
   const { login } = useContext(RealmContext);
   const {
     handleSubmit,
@@ -47,6 +48,7 @@ function Login(props) {
     try {
       await login("emailPassword", values.email.toLowerCase(), values.password);
       toast.success("Đăng nhập thành công");
+      navigate("/");
     } catch (error) {
       toast.error("Tài khoản của bạn không tồn tại! Vui lòng thử lại");
     }
@@ -105,7 +107,7 @@ function Login(props) {
       <div className="flex items-center justify-center flex-shrink-0 w-full md:w-[50%] bg-[#f3f5f9]">
         <img
           className="md:w-full md:h-full h-[200px] w-full object-cover object-top"
-          src="/images/asslogo.jpg"
+          src="https://images.unsplash.com/photo-1605098293544-25f4c32344c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
           alt=""
         />
       </div>
