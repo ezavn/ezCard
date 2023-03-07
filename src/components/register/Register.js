@@ -112,7 +112,7 @@ const Register = () => {
           >
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
-              placeholder="Xác nhận mậy khẩu"
+              placeholder="Xác nhận mật khẩu"
               className="w-full px-3 py-2 border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:ring-opacity-50"
             />
           </Form.Item>
