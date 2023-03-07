@@ -86,7 +86,7 @@ function Login(props) {
               disabled={isSubmitting}
             ></InputPasswordToggle>
           </Field>
-          <div className="flex justify-between">
+          <div className="flex flex-col justify-between md:flex-row">
             <div>
               Bạn chưa có tài khoản? <Link to="/register">Đăng ký</Link>
             </div>

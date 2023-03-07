@@ -28,18 +28,19 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-blue-300">
-      <div className="flex w-full max-w-[980px] p-6 mx-auto bg-white rounded-lg shadow-lg">
+      <div className="flex flex-col md:flex-row w-full md:max-w-[980px] p-6 m-[15px] md:mx-auto bg-white rounded-lg shadow-lg">
         <div>
           <img
             src="https://images.unsplash.com/photo-1569229569803-69384f5efa83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
             alt=""
+            className="object-cover w-full h-[210px] md:h-full"
           />
         </div>
         <Form
           name="register"
           onFinish={onFinish}
           scrollToFirstError
-          className="py-[80px] px-[30px] flex-1"
+          className="py-[40px] md:py-[80px] px-[20px] md:px-[30px] flex-1 w-full"
           layout="vertical"
         >
           <Form.Item
