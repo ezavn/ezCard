@@ -20,9 +20,6 @@ function Profile(props) {
   return (
     card && (
       <div className="relative card-container">
-        <Button type="primary" className="absolute top-[30px] left-[30px]">
-          <Link to="/">Quay Lại</Link>
-        </Button>
         <CardProfile card={card} />
       </div>
     )

@@ -1,4 +1,4 @@
-import { Button, Form, Input, Upload } from "antd";
+import { Affix, Button, Card, Col, Form, Input, Row, Upload } from "antd";
 import React, { useContext, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -80,12 +80,12 @@ export default function UpdateProfile() {
 
   return (
     card && (
-      <div className="flex flex-col md:flex-row w-full h-full py-[50px] relative">
+      <div className="flex flex-col lg:flex-row w-full h-full py-[50px] relative">
         <Button type="primary" className="absolute top-0">
           <Link to="/">Quay Lại</Link>
         </Button>
-        <div className="flex-1 w-full md:max-w-[600px] mx-auto p-[30px] rounded-md bg-white shadow-lg">
-          <h2 className="mb-[30px]">Update your profile</h2>
+        <div className="flex-1 w-full md:max-w-full mx-auto p-[30px] rounded-md bg-white shadow-lg mb-[30px]">
+          <h2 className="mb-[30px]">Cập Nhật Hồ Sơ</h2>
           <Form
             form={form}
             layout="vertical"
@@ -120,56 +120,67 @@ export default function UpdateProfile() {
                 )}
               </Upload>
             </Form.Item>
-            <Form.Item
-              name="name"
-              label="Name"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your name!",
-                },
-              ]}
-            >
-              <Input placeholder="Enter your name" />
-            </Form.Item>
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item
+                  name="name"
+                  label="Name"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter your name" />
+                </Form.Item>
+              </Col>
+              <Col xl={12} xs={24}>
+                <Form.Item
+                  name="phone"
+                  label="Phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your phone!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter your phone" />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item
+                  name="company"
+                  label="Company"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your company!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter your company" />
+                </Form.Item>
+              </Col>
+              <Col xl={12} xs={24}>
+                <Form.Item
+                  name="position"
+                  label="Position"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your position!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter your position" />
+                </Form.Item>
+              </Col>
+            </Row>
 
-            <Form.Item
-              name="company"
-              label="Company"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your company!",
-                },
-              ]}
-            >
-              <Input placeholder="Enter your company" />
-            </Form.Item>
-
-            <Form.Item
-              name="position"
-              label="Position"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your position!",
-                },
-              ]}
-            >
-              <Input placeholder="Enter your position" />
-            </Form.Item>
-            <Form.Item
-              name="phone"
-              label="Phone"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your phone!",
-                },
-              ]}
-            >
-              <Input placeholder="Enter your phone" />
-            </Form.Item>
             <Form.Item
               name="address"
               label="Address"
@@ -209,41 +220,68 @@ export default function UpdateProfile() {
               <Input.TextArea rows={4} placeholder="Enter your description" />
             </Form.Item> */}
 
-            <Form.Item name="facebook" label="Facebook">
-              <Input placeholder="Enter your Facebook link" />
-            </Form.Item>
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item name="gmail" label="Email">
+                  <Input placeholder="Enter your Email address" />
+                </Form.Item>
+              </Col>
 
-            <Form.Item name="zalo" label="Zalo">
-              <Input placeholder="Enter your Zalo number" />
-            </Form.Item>
+              <Col xl={12} xs={24}>
+                <Form.Item name="facebook" label="Facebook">
+                  <Input placeholder="Enter your Facebook link" />
+                </Form.Item>
+              </Col>
+            </Row>
 
-            <Form.Item name="viber" label="Viber">
-              <Input placeholder="Enter your Viber number" />
-            </Form.Item>
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item name="zalo" label="Zalo">
+                  <Input placeholder="Enter your Zalo number" />
+                </Form.Item>
+              </Col>
 
-            <Form.Item name="gmail" label="Email">
-              <Input placeholder="Enter your Email address" />
-            </Form.Item>
+              <Col xl={12} xs={24}>
+                <Form.Item name="viber" label="Viber">
+                  <Input placeholder="Enter your Viber number" />
+                </Form.Item>
+              </Col>
+            </Row>
 
-            <Form.Item name="services" label="Services Link">
-              <Input placeholder="Enter your link" />
-            </Form.Item>
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item name="services" label="Services Link">
+                  <Input placeholder="Enter your link" />
+                </Form.Item>
+              </Col>
 
-            <Form.Item name="caseStudy" label="Case Study Link">
-              <Input placeholder="Enter your link" />
-            </Form.Item>
+              <Col xl={12} xs={24}>
+                <Form.Item name="caseStudy" label="Case Study Link">
+                  <Input placeholder="Enter your link" />
+                </Form.Item>
+              </Col>
+            </Row>
 
-            <Form.Item name="brochure" label="Brochure Link">
-              <Input placeholder="Enter your link" />
-            </Form.Item>
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item name="brochure" label="Brochure Link">
+                  <Input placeholder="Enter your link" />
+                </Form.Item>
+              </Col>
+            </Row>
 
             <Button type="primary" htmlType="submit" loading={loading}>
               Save Profile
             </Button>
           </Form>
         </div>
-        <div className="flex-1 card-container">
-          <CardProfile card={card} />
+        <div className="flex-shrink-0 lg:ml-[30px] mx-auto">
+          <Affix offsetTop={10}>
+            <div className="flex items-center justify-center flex-col relative mobile-block w-[340px] md:w-[375px] h-[640px] border-solid border-[8px] border-[#021d48] rounded-[40px] overflow-y-auto">
+              <div className="mobile-block-top"></div>
+              <CardProfile card={card} />
+            </div>
+          </Affix>
         </div>
       </div>
     )

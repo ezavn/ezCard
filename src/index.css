@@ -22,3 +22,26 @@
   padding: 5px 12px;
   cursor: pointer;
 }
+
+.mobile-block::-webkit-scrollbar {
+  display: none;
+}
+.mobile-block {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
+  background-position: center;
+  background-size: cover;
+}
+.mobile-block-top {
+  background: #021d48;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 15px;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  position: absolute;
+  width: 150px;
+  z-index: 99;
+}

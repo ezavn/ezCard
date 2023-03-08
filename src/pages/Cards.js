@@ -96,7 +96,9 @@ function Cards() {
               </div>
               <div className="mt-[15px] flex gap-x-[10px] items-center">
                 <Button type="primary">
-                  <Link to={`/profile/${card.short}`}>Xem ECard</Link>
+                  <Link to={`/profile/${card.short}`} target="_blank">
+                    Xem ECard
+                  </Link>
                 </Button>
                 <Button type="primary">
                   <Link to={`/update-profile/${card._id.toString()}`}>

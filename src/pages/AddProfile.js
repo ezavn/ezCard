@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, Input, Button, Upload, message } from "antd";
+import { Form, Input, Button, Upload, message, Row, Col } from "antd";
 import { PlusOutlined, LoadingOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { RealmContext } from "../context/realmProvider";
@@ -74,7 +74,7 @@ const AddProfile = () => {
   return (
     <div className="w-full h-full bg-[#f5f5f5] py-[50px]">
       <div className="max-w-[700px] mx-auto p-[30px] rounded-md bg-white shadow-lg">
-        <h2 className="mb-[30px]">Edit your profile</h2>
+        <h2 className="mb-[30px]">Tạo Hồ Sơ Mới</h2>
         <Form
           layout="vertical"
           form={form}
@@ -106,57 +106,67 @@ const AddProfile = () => {
             </Upload>
           </FormItem>
 
-          <FormItem
-            name="name"
-            label="Name"
-            rules={[
-              {
-                required: true,
-                message: "Please input your name!",
-              },
-            ]}
-          >
-            <Input placeholder="Enter your name" />
-          </FormItem>
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item
+                name="name"
+                label="Name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your name!",
+                  },
+                ]}
+              >
+                <Input placeholder="Enter your name" />
+              </Form.Item>
+            </Col>
+            <Col xl={12} xs={24}>
+              <Form.Item
+                name="phone"
+                label="Phone"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your phone!",
+                  },
+                ]}
+              >
+                <Input placeholder="Enter your phone" />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item
+                name="company"
+                label="Company"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your company!",
+                  },
+                ]}
+              >
+                <Input placeholder="Enter your company" />
+              </Form.Item>
+            </Col>
+            <Col xl={12} xs={24}>
+              <Form.Item
+                name="position"
+                label="Position"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your position!",
+                  },
+                ]}
+              >
+                <Input placeholder="Enter your position" />
+              </Form.Item>
+            </Col>
+          </Row>
 
-          <Form.Item
-            name="company"
-            label="Company"
-            rules={[
-              {
-                required: true,
-                message: "Please input your company!",
-              },
-            ]}
-          >
-            <Input placeholder="Enter your company" />
-          </Form.Item>
-
-          <FormItem
-            name="position"
-            label="Position"
-            rules={[
-              {
-                required: true,
-                message: "Please input your position!",
-              },
-            ]}
-          >
-            <Input placeholder="Enter your position" />
-          </FormItem>
-
-          <Form.Item
-            name="phone"
-            label="Phone"
-            rules={[
-              {
-                required: true,
-                message: "Please input your phone!",
-              },
-            ]}
-          >
-            <Input placeholder="Enter your phone" />
-          </Form.Item>
           <Form.Item
             name="address"
             label="Address"
@@ -170,59 +180,81 @@ const AddProfile = () => {
             <Input placeholder="Enter your address" />
           </Form.Item>
 
-          {/* <FormItem
-            name="title"
-            label="Title"
-            rules={[
-              {
-                required: true,
-                message: "Please input your title!",
-              },
-            ]}
-          >
-            <Input placeholder="Enter your title" />
-          </FormItem> */}
+          {/* <Form.Item
+              name="title"
+              label="Title"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your title!",
+                },
+              ]}
+            >
+              <Input placeholder="Enter your title" />
+            </Form.Item> */}
 
-          {/* <FormItem
-            name="description"
-            label="Description"
-            rules={[
-              {
-                required: true,
-                message: "Please input your description!",
-              },
-            ]}
-          >
-            <Input.TextArea rows={4} placeholder="Enter your description" />
-          </FormItem> */}
+          {/* <Form.Item
+              name="description"
+              label="Description"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your description!",
+                },
+              ]}
+            >
+              <Input.TextArea rows={4} placeholder="Enter your description" />
+            </Form.Item> */}
 
-          <FormItem name="facebook" label="Facebook">
-            <Input placeholder="Enter your Facebook link" />
-          </FormItem>
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item name="gmail" label="Email">
+                <Input placeholder="Enter your Email address" />
+              </Form.Item>
+            </Col>
 
-          <Form.Item name="zalo" label="Zalo">
-            <Input placeholder="Enter your Zalo number" />
-          </Form.Item>
+            <Col xl={12} xs={24}>
+              <Form.Item name="facebook" label="Facebook">
+                <Input placeholder="Enter your Facebook link" />
+              </Form.Item>
+            </Col>
+          </Row>
 
-          <Form.Item name="viber" label="Viber">
-            <Input placeholder="Enter your Viber number" />
-          </Form.Item>
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item name="zalo" label="Zalo">
+                <Input placeholder="Enter your Zalo number" />
+              </Form.Item>
+            </Col>
 
-          <Form.Item name="gmail" label="Email">
-            <Input placeholder="Enter your Email address" />
-          </Form.Item>
+            <Col xl={12} xs={24}>
+              <Form.Item name="viber" label="Viber">
+                <Input placeholder="Enter your Viber number" />
+              </Form.Item>
+            </Col>
+          </Row>
 
-          <FormItem name="services" label="Services Link">
-            <Input placeholder="Enter your link" />
-          </FormItem>
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item name="services" label="Services Link">
+                <Input placeholder="Enter your link" />
+              </Form.Item>
+            </Col>
 
-          <FormItem name="caseStudy" label="Case Study Link">
-            <Input placeholder="Enter your link" />
-          </FormItem>
+            <Col xl={12} xs={24}>
+              <Form.Item name="caseStudy" label="Case Study Link">
+                <Input placeholder="Enter your link" />
+              </Form.Item>
+            </Col>
+          </Row>
 
-          <FormItem name="brochure" label="Brochure Link">
-            <Input placeholder="Enter your link" />
-          </FormItem>
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item name="brochure" label="Brochure Link">
+                <Input placeholder="Enter your link" />
+              </Form.Item>
+            </Col>
+          </Row>
 
           <Button type="primary" htmlType="submit" loading={loading}>
             Save Profile
