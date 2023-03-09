@@ -11,11 +11,23 @@ import { RealmContext } from "../context/realmProvider";
 import { useNavigate } from "react-router-dom";
 import CardProfile from "../components/CardProfile/CardProfile";
 import { useEffect } from "react";
-const getBase64 = (img, callback) => {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
+import ImgCrop from "antd-img-crop";
+
+const handleCropImg = async (file) => {
+  let src = file.url;
+  if (!src) {
+    src = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file.originFileObj);
+      reader.onload = () => resolve(reader.result);
+    });
+  }
+  const image = new Image();
+  image.src = src;
+  const imgWindow = window.open(src);
+  imgWindow?.document.write(image.outerHTML);
 };
+
 export default function UpdateProfile() {
   const { mongo } = useContext(RealmContext);
   const [form] = Form.useForm();
@@ -92,25 +104,28 @@ export default function UpdateProfile() {
               <Input hidden />
             </Form.Item>
             <Form.Item label="Upload Avatar">
-              <Upload
-                name="avatar"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                beforeUpload={beforeUpload}
-              >
-                {imageUrl ? (
-                  <img
-                    src={imageUrl}
-                    alt="avatar"
-                    style={{
-                      width: "100%",
-                    }}
-                  />
-                ) : (
-                  uploadButton
-                )}
-              </Upload>
+              <ImgCrop rotate>
+                <Upload
+                  name="avatar"
+                  listType="picture-card"
+                  className="avatar-uploader"
+                  showUploadList={false}
+                  beforeUpload={beforeUpload}
+                  onPreview={handleCropImg}
+                >
+                  {imageUrl ? (
+                    <img
+                      src={imageUrl}
+                      alt="avatar"
+                      style={{
+                        width: "100%",
+                      }}
+                    />
+                  ) : (
+                    uploadButton
+                  )}
+                </Upload>
+              </ImgCrop>
             </Form.Item>
 
             <Row gutter={20}>

@@ -8,12 +8,28 @@ import { insertCard } from "../redux/cardsSlice";
 import storage from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import ImgCrop from "antd-img-crop";
 
 const uid = new ShortUniqueId({
   dictionary: "alphanum_lower",
   length: 5,
 });
 const FormItem = Form.Item;
+
+const handleCropImg = async (file) => {
+  let src = file.url;
+  if (!src) {
+    src = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file.originFileObj);
+      reader.onload = () => resolve(reader.result);
+    });
+  }
+  const image = new Image();
+  image.src = src;
+  const imgWindow = window.open(src);
+  imgWindow?.document.write(image.outerHTML);
+};
 
 const AddProfile = () => {
   const { mongo, user } = useContext(RealmContext);
@@ -85,25 +101,28 @@ const AddProfile = () => {
             <Input hidden />
           </Form.Item>
           <FormItem label="Upload Avatar">
-            <Upload
-              name="avatar"
-              listType="picture-card"
-              className="avatar-uploader"
-              showUploadList={false}
-              beforeUpload={beforeUpload}
-            >
-              {imageUrl ? (
-                <img
-                  src={imageUrl}
-                  alt="avatar"
-                  style={{
-                    width: "100%",
-                  }}
-                />
-              ) : (
-                uploadButton
-              )}
-            </Upload>
+            <ImgCrop rotate>
+              <Upload
+                name="avatar"
+                listType="picture-card"
+                className="avatar-uploader"
+                showUploadList={false}
+                beforeUpload={beforeUpload}
+                onPreview={handleCropImg}
+              >
+                {imageUrl ? (
+                  <img
+                    src={imageUrl}
+                    alt="avatar"
+                    style={{
+                      width: "100%",
+                    }}
+                  />
+                ) : (
+                  uploadButton
+                )}
+              </Upload>
+            </ImgCrop>
           </FormItem>
 
           <Row gutter={20}>
