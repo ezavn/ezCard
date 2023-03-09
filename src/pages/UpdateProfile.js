@@ -29,11 +29,6 @@ export default function UpdateProfile() {
 
   const beforeUpload = (file) => {
     handleUpload(file);
-    // getBase64(file, (url) => {
-    //   const photo = url.replace("data:image/png;base64,", "");
-    //   console.log(photo);
-    //   form.setFieldValue("photo", url);
-    // });
     return false;
   };
 
@@ -96,10 +91,7 @@ export default function UpdateProfile() {
             <Form.Item className="hidden" name="avatar">
               <Input hidden />
             </Form.Item>
-            <Form.Item className="hidden" name="photo">
-              <Input hidden />
-            </Form.Item>
-            <Form.Item label="Upload Image">
+            <Form.Item label="Upload Avatar">
               <Upload
                 name="avatar"
                 listType="picture-card"
@@ -120,19 +112,20 @@ export default function UpdateProfile() {
                 )}
               </Upload>
             </Form.Item>
+
             <Row gutter={20}>
               <Col xl={12} xs={24}>
                 <Form.Item
                   name="name"
-                  label="Name"
+                  label="Họ và tên"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your name!",
+                      message: "Làm ơn nhập họ và tên!",
                     },
                   ]}
                 >
-                  <Input placeholder="Enter your name" />
+                  <Input placeholder="Nhập Họ và Tên" />
                 </Form.Item>
               </Col>
               <Col xl={12} xs={24}>
@@ -142,11 +135,11 @@ export default function UpdateProfile() {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your phone!",
+                      message: "Làm ơn nhập SĐT!",
                     },
                   ]}
                 >
-                  <Input placeholder="Enter your phone" />
+                  <Input placeholder="Nhập SĐT" />
                 </Form.Item>
               </Col>
             </Row>
@@ -154,44 +147,44 @@ export default function UpdateProfile() {
               <Col xl={12} xs={24}>
                 <Form.Item
                   name="company"
-                  label="Company"
+                  label="Công ty"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your company!",
+                      message: "Làm ơn nhập tên công ty!",
                     },
                   ]}
                 >
-                  <Input placeholder="Enter your company" />
+                  <Input placeholder="Nhập tên công ty" />
                 </Form.Item>
               </Col>
               <Col xl={12} xs={24}>
                 <Form.Item
                   name="position"
-                  label="Position"
+                  label="Chức vụ"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your position!",
+                      message: "Làm ơn nhập chức vụ!",
                     },
                   ]}
                 >
-                  <Input placeholder="Enter your position" />
+                  <Input placeholder="Nhập chức vụ" />
                 </Form.Item>
               </Col>
             </Row>
 
             <Form.Item
               name="address"
-              label="Address"
+              label="Địa chỉ"
               rules={[
                 {
                   required: true,
-                  message: "Please input your address!",
+                  message: "Làm ơn nhập địa chỉ!",
                 },
               ]}
             >
-              <Input placeholder="Enter your address" />
+              <Input placeholder="Nhập địa chỉ" />
             </Form.Item>
 
             {/* <Form.Item
@@ -223,13 +216,13 @@ export default function UpdateProfile() {
             <Row gutter={20}>
               <Col xl={12} xs={24}>
                 <Form.Item name="gmail" label="Email">
-                  <Input placeholder="Enter your Email address" />
+                  <Input placeholder="Nhập địa chỉ Email" />
                 </Form.Item>
               </Col>
 
               <Col xl={12} xs={24}>
                 <Form.Item name="facebook" label="Facebook">
-                  <Input placeholder="Enter your Facebook link" />
+                  <Input placeholder="Nhập link Facebook" />
                 </Form.Item>
               </Col>
             </Row>
@@ -237,13 +230,13 @@ export default function UpdateProfile() {
             <Row gutter={20}>
               <Col xl={12} xs={24}>
                 <Form.Item name="zalo" label="Zalo">
-                  <Input placeholder="Enter your Zalo number" />
+                  <Input placeholder="Nhập số Zalo" />
                 </Form.Item>
               </Col>
 
               <Col xl={12} xs={24}>
                 <Form.Item name="viber" label="Viber">
-                  <Input placeholder="Enter your Viber number" />
+                  <Input placeholder="Nhập số Viber" />
                 </Form.Item>
               </Col>
             </Row>
@@ -251,13 +244,13 @@ export default function UpdateProfile() {
             <Row gutter={20}>
               <Col xl={12} xs={24}>
                 <Form.Item name="services" label="Services Link">
-                  <Input placeholder="Enter your link" />
+                  <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
               </Col>
 
               <Col xl={12} xs={24}>
                 <Form.Item name="caseStudy" label="Case Study Link">
-                  <Input placeholder="Enter your link" />
+                  <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
               </Col>
             </Row>
@@ -265,7 +258,7 @@ export default function UpdateProfile() {
             <Row gutter={20}>
               <Col xl={12} xs={24}>
                 <Form.Item name="brochure" label="Brochure Link">
-                  <Input placeholder="Enter your link" />
+                  <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
               </Col>
             </Row>

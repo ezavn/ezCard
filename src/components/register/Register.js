@@ -3,11 +3,17 @@ import { Form, Input, Button, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { RealmContext } from "../../context/realmProvider";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const Register = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+  const params = searchParams.get("email");
+  console.log(params);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { app } = useContext(RealmContext);
+  const [form] = Form.useForm();
   const onFinish = async (values) => {
     setIsLoading(true);
     try {
@@ -25,24 +31,32 @@ const Register = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    form.setFieldValue("email", params);
+  });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-blue-300">
+    <div className="flex items-center justify-center min-h-screen register">
       <div className="flex flex-col md:flex-row w-full md:max-w-[980px] p-6 m-[15px] md:mx-auto bg-white rounded-lg shadow-lg">
         <div>
           <img
-            src="https://images.unsplash.com/photo-1569229569803-69384f5efa83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+            src="/images/register-banner.png"
             alt=""
-            className="object-cover w-full h-[210px] md:h-full"
+            className="object-cover w-full h-full md:h-[580px] md:w-[435px]"
           />
         </div>
         <Form
+          form={form}
           name="register"
           onFinish={onFinish}
           scrollToFirstError
           className="py-[40px] md:py-[80px] px-[10px] md:px-[30px] flex-1 w-full"
           layout="vertical"
         >
+          <h3 className="text-[20px] font-bold text-center">
+            TẠO TÀI KHOẢN ĐỂ SỞ HỮU THẺ{" "}
+            <span className="text-[#FF4D4F]">ez</span>CARD MIỄN PHÍ
+          </h3>
           <Form.Item
             label="Email"
             name="email"
@@ -119,13 +133,12 @@ const Register = () => {
 
           <Form.Item>
             <Button
-              type="primary"
               htmlType="submit"
-              className="rounded-lg shadow-sm"
+              className="rounded-lg shadow-sm !bg-[#FF4D4F] text-white border-none"
               loading={isLoading}
               disabled={isLoading}
             >
-              Register
+              Đăng Ký
             </Button>
           </Form.Item>
         </Form>
