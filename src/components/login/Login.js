@@ -50,7 +50,7 @@ function Login(props) {
       toast.success("Đăng nhập thành công");
       navigate("/");
     } catch (error) {
-      toast.error("Tài khoản của bạn không tồn tại! Vui lòng thử lại");
+      toast.error("Tài khoản của bạn không chính xác! Vui lòng thử lại");
     }
   };
   return (
