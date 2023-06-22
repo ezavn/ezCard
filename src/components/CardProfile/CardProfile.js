@@ -62,7 +62,7 @@ END:VCARD
 
   return (
     <>
-      <div className="card" data-state="#about">
+      {/* <div className="card" data-state="#about">
         <div className="card-header mb-[70px]">
           <div className="card-cover"></div>
           <img className="card-avatar" src={card?.avatar} alt="avatar" />
@@ -72,12 +72,6 @@ END:VCARD
         </div>
         <div className="card-main">
           <div className="card-section is-active" id="about">
-            {/* <div className="card-content">
-              <div className="card-subtitle">{card.title}</div>
-              <div className="content">
-                <p className="card-desc">{card.description}</p>
-              </div>
-            </div> */}
             <div className="card-social">
               <a href={card?.facebook} target="_blank">
                 <img src="/icons/facebook.png" alt="" />
@@ -94,39 +88,72 @@ END:VCARD
             </div>
           </div>
           <div className="card-buttons">
-            {/* <button
-              onClick={() => activeLink1(true)}
-              data-section="#about"
-              className={`${showLink1 ? "is-active" : ""}`}
-            >
-              ABOUT
-            </button> */}
             <a
               onClick={() => activeLink1(true)}
               className={`${showLink1 ? "is-active" : ""}`}
-              href={card?.services}
+              href={card?.website}
               target="_blank"
               data-section="#experience"
             >
-              SERVICES
+              WEBSITE
             </a>
             <a
               onClick={() => activeLink2(true)}
               className={`${showLink2 ? "is-active" : ""}`}
-              href={card?.caseStudy}
+              href={card?.profile}
               target="_blank"
               data-section="#experience"
             >
-              CASE STUDY
+              HỒ SƠ NĂNG LỰC
+            </a>
+          </div>
+        </div>
+      </div> */}
+      <div className="ecard">
+        <div className="ecard-header">
+          <div className="ecard-cover"></div>
+          <div className="ecard-avatar">
+            <img src={card?.avatar} alt="avatar" />
+          </div>
+          <h1 className="ecard-fullname">{card.name}</h1>
+          <h2 className="ecard-company">{card.company}</h2>
+          <h2 className="ecard-jobtitle">{card.position}</h2>
+        </div>
+        <div className="ecard-dashboard">
+          <div className="ecard-section is-active" id="about">
+            <div className="ecard-social">
+              <a href={card?.facebook} target="_blank">
+                <img src="/icons/facebook.png" alt="" />
+              </a>
+              <a href={`http://zalo.me/${card?.zalo}`} target="_blank">
+                <img src="/icons/zalo.png" alt="" />
+              </a>
+              <a href={`viber://add?number=84${card?.viber}`}>
+                <img src="/icons/viber.png" alt="" />
+              </a>
+              <a href={`mailto:${card?.youtube}`}>
+                <img src="/icons/mail.png" alt="" />
+              </a>
+            </div>
+          </div>
+          <div className="ecard-buttons">
+            <a
+              onClick={() => activeLink1(true)}
+              className={`${showLink1 ? "is-active" : ""}`}
+              href={card?.website}
+              target="_blank"
+              data-section="#experience"
+            >
+              WEBSITE
             </a>
             <a
-              onClick={() => activeLink3(true)}
-              className={`${showLink3 ? "is-active" : ""}`}
-              href={card?.brochure}
+              onClick={() => activeLink2(true)}
+              className={`${showLink2 ? "is-active" : ""}`}
+              href={card?.profile}
               target="_blank"
-              data-section="#contact"
+              data-section="#experience"
             >
-              BROCHURE
+              HỒ SƠ NĂNG LỰC
             </a>
           </div>
         </div>

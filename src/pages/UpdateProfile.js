@@ -258,25 +258,25 @@ export default function UpdateProfile() {
 
             <Row gutter={20}>
               <Col xl={12} xs={24}>
-                <Form.Item name="services" label="Services Link">
+                <Form.Item name="website" label="Website">
                   <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
               </Col>
 
               <Col xl={12} xs={24}>
-                <Form.Item name="caseStudy" label="Case Study Link">
+                <Form.Item name="profile" label="Hồ sơ năng lực">
                   <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
               </Col>
             </Row>
 
-            <Row gutter={20}>
+            {/* <Row gutter={20}>
               <Col xl={12} xs={24}>
                 <Form.Item name="brochure" label="Brochure Link">
                   <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
               </Col>
-            </Row>
+            </Row> */}
 
             <Button type="primary" htmlType="submit" loading={loading}>
               Save Profile
