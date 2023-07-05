@@ -7,7 +7,7 @@ import ShortUniqueId from "short-unique-id";
 import { insertCard } from "../redux/cardsSlice";
 import storage from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ImgCrop from "antd-img-crop";
 
 const uid = new ShortUniqueId({
@@ -88,7 +88,10 @@ const AddProfile = () => {
   );
 
   return (
-    <div className="w-full h-full bg-[#f5f5f5] py-[50px]">
+    <div className="w-full h-full bg-[#f5f5f5] py-[50px] relative">
+      <Button type="primary" className="absolute top-0">
+        <Link to="/">Quay Lại</Link>
+      </Button>
       <div className="max-w-[700px] mx-auto p-[30px] rounded-md bg-white shadow-lg">
         <h2 className="mb-[30px]">Tạo Hồ Sơ Mới</h2>
         <Form

@@ -7,6 +7,7 @@ export default function CardProfile({ card }) {
   const [showLink1, setShowLink1] = useState(false);
   const [showLink2, setShowLink2] = useState(false);
   const [showLink3, setShowLink3] = useState(false);
+  console.log(card?.avatar);
 
   const activeLink1 = () => {
     setShowLink1(true);
@@ -113,7 +114,10 @@ END:VCARD
         <div className="ecard-header">
           <div className="ecard-cover"></div>
           <div className="ecard-avatar">
-            <img src={card?.avatar} alt="avatar" />
+            <img
+              src={`${card?.avatar ? card?.avatar : "/images/user-avatar.png"}`}
+              alt="avatar"
+            />
           </div>
           <h1 className="ecard-fullname">{card.name}</h1>
           <h2 className="ecard-company">{card.company}</h2>
