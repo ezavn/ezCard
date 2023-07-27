@@ -9,6 +9,7 @@ import storage from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
 import ImgCrop from "antd-img-crop";
+import Editor from "../components/Editor";
 
 const uid = new ShortUniqueId({
   dictionary: "alphanum_lower",
@@ -215,19 +216,6 @@ const AddProfile = () => {
               <Input placeholder="Enter your title" />
             </Form.Item> */}
 
-          {/* <Form.Item
-              name="description"
-              label="Description"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your description!",
-                },
-              ]}
-            >
-              <Input.TextArea rows={4} placeholder="Enter your description" />
-            </Form.Item> */}
-
           <Row gutter={20}>
             <Col xl={12} xs={24}>
               <Form.Item name="gmail" label="Email">
@@ -255,6 +243,22 @@ const AddProfile = () => {
               </Form.Item>
             </Col>
           </Row>
+
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item name="whatsapp" label="Whatsapp">
+                <Input placeholder="Nhập số Whatsapp" />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Form.Item name="desctitle" label="Tiêu đề mô tả">
+            <Input placeholder="Nhập tiêu đề" />
+          </Form.Item>
+
+          <Form.Item label="Mô tả" name="content">
+            <Editor />
+          </Form.Item>
 
           <Row gutter={20}>
             <Col xl={12} xs={24}>

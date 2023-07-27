@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import CardProfile from "../components/CardProfile/CardProfile";
 import { useEffect } from "react";
 import ImgCrop from "antd-img-crop";
+import Editor from "../components/Editor";
 
 const handleCropImg = async (file) => {
   let src = file.url;
@@ -258,6 +259,22 @@ export default function UpdateProfile() {
 
             <Row gutter={20}>
               <Col xl={12} xs={24}>
+                <Form.Item name="whatsapp" label="Whatsapp">
+                  <Input placeholder="Nhập số Whatsapp" />
+                </Form.Item>
+              </Col>
+            </Row>
+
+            <Form.Item name="desctitle" label="Tiêu đề mô tả">
+              <Input placeholder="Nhập tiêu đề" />
+            </Form.Item>
+
+            <Form.Item label="Mô tả" name="content">
+              <Editor />
+            </Form.Item>
+
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
                 <Form.Item name="website" label="Website">
                   <Input placeholder="Nhập link của bạn" />
                 </Form.Item>
@@ -285,7 +302,7 @@ export default function UpdateProfile() {
         </div>
         <div className="flex-shrink-0 lg:ml-[30px] mx-auto">
           <Affix offsetTop={10}>
-            <div className="flex items-center justify-center flex-col relative mobile-block w-[340px] md:w-[375px] h-[640px] border-solid border-[8px] border-[#021d48] rounded-[40px] overflow-y-auto">
+            <div className="flex items-center justify-center flex-col relative mobile-block w-[340px] md:w-[375px] h-[720px] border-solid border-[8px] border-[#021d48] rounded-[40px] overflow-y-auto">
               <div className="mobile-block-top"></div>
               <CardProfile card={card} />
             </div>

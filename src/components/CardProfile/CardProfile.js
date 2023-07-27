@@ -7,7 +7,7 @@ export default function CardProfile({ card }) {
   const [showLink1, setShowLink1] = useState(false);
   const [showLink2, setShowLink2] = useState(false);
   const [showLink3, setShowLink3] = useState(false);
-  console.log(card?.avatar);
+  console.log({ card });
 
   const activeLink1 = () => {
     setShowLink1(true);
@@ -48,6 +48,7 @@ URL;TYPE=Facebook:${card?.facebook}
 
 URL;TYPE=Zalo:https://zalo.me/${card?.zalo}
 URL;TYPE=Viber:viber://chat?number=+84${card?.viber}
+URL;TYPE=Whatsapp:https://wa.me/${card?.whatsapp}
 END:VCARD
       `,
         ],
@@ -123,21 +124,50 @@ END:VCARD
           <h2 className="ecard-company">{card.company}</h2>
           <h2 className="ecard-jobtitle">{card.position}</h2>
         </div>
+        <div className="ecard-content">
+          {card?.desctitle && (
+            <div className="card-subtitle">{card?.desctitle}</div>
+          )}
+          {card?.content && (
+            <div className="content">
+              <div
+                className="card-desc"
+                dangerouslySetInnerHTML={{ __html: card?.content }}
+              ></div>
+            </div>
+          )}
+        </div>
         <div className="ecard-dashboard">
           <div className="ecard-section is-active" id="about">
             <div className="ecard-social">
-              <a href={card?.facebook} target="_blank">
-                <img src="/icons/facebook.png" alt="" />
-              </a>
-              <a href={`http://zalo.me/${card?.zalo}`} target="_blank">
-                <img src="/icons/zalo.png" alt="" />
-              </a>
-              <a href={`viber://add?number=84${card?.viber}`}>
-                <img src="/icons/viber.png" alt="" />
-              </a>
-              <a href={`mailto:${card?.youtube}`}>
-                <img src="/icons/mail.png" alt="" />
-              </a>
+              {card?.facebook && (
+                <a href={card?.facebook} target="_blank">
+                  <img src="/icons/facebook.png" alt="" />
+                </a>
+              )}
+              {card?.zalo && (
+                <a href={`http://zalo.me/${card?.zalo}`} target="_blank">
+                  <img src="/icons/zalo.png" alt="" />
+                </a>
+              )}
+              {card?.viber && (
+                <a href={`viber://add?number=84${card?.viber}`} target="_blank">
+                  <img src="/icons/viber.png" alt="" />
+                </a>
+              )}
+              {card?.gmail && (
+                <a href={`mailto:${card?.gmail}`} target="_blank">
+                  <img src="/icons/mail.png" alt="" />
+                </a>
+              )}
+              {card?.whatsapp && (
+                <a
+                  href={`https://api.whatsapp.com/send?phone=${card?.whatsapp}`}
+                  target="_blank"
+                >
+                  <img src="/icons/whatsapp.png" alt="" />
+                </a>
+              )}
             </div>
           </div>
           <div className="ecard-buttons">
