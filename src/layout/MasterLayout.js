@@ -29,9 +29,9 @@ function MasterLayout(props) {
   }, [user]);
 
   const onHandelChangePassword = async () => {
-    // await app.emailPasswordAuth.sendResetPasswordEmail({
-    //   email: email,
-    // });
+    await app.emailPasswordAuth.sendResetPasswordEmail({
+      email: email,
+    });
     setModal2Open(true);
   };
 
