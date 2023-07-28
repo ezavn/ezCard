@@ -1,4 +1,4 @@
-import { Button, Card, QRCode } from "antd";
+import { Button, Card, Popconfirm, QRCode } from "antd";
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RealmContext } from "../context/realmProvider";
@@ -40,10 +40,10 @@ function Cards() {
       })
     );
   };
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     dispatch(deleteCard({ mongo, id }));
   };
-  const handleUpdate = (entity) => {
+  const handleUpdate = entity => {
     dispatch(
       updateCard({
         mongo,
@@ -58,13 +58,13 @@ function Cards() {
     dispatch(
       updateCards({
         mongo,
-        ids: cards.map((card) => card._id),
+        ids: cards.map(card => card._id),
         update: { name: "Update All" },
       })
     );
   };
   const handleDeleteMany = () => {
-    dispatch(deleteCards({ mongo, ids: cards.map((card) => card._id) }));
+    dispatch(deleteCards({ mongo, ids: cards.map(card => card._id) }));
   };
   const handleSearch = () => {
     dispatch(searchCards("keyworld_" + Math.random()));
@@ -72,48 +72,49 @@ function Cards() {
   return (
     <div>
       {/* <Button onClick={handleSearch}>Search</Button> */}
-      <Button type="primary" size="large" className="mb-[10px]">
-        <Link to="/add-profile">Tạo Card Mới</Link>
+      <Button type='primary' size='large' className='mb-[10px]'>
+        <Link to='/add-profile'>Tạo Card Mới</Link>
       </Button>
       {/* <Button onClick={handleDeleteMany}>Xoá Toàn Bộ Card</Button> */}
       {/* <Button onClick={handleUpdateMany}>Update Many</Button> */}
-      <Card title="Danh sách" bodyStyle={{ padding: "20px" }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-[50px] gap-y-[30px]">
-          {cards.map((card) => (
+      <Card title='Danh sách' bodyStyle={{ padding: "20px" }}>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-x-[50px] gap-y-[30px]'>
+          {cards.map(card => (
             <div key={card._id}>
-              <div className="bg-black rounded-xl h-[250px] md:h-[280px] pt-[25px] pr-[25px] pb-[30px] pl-[40px] md:pl-[70px] shadow-lg">
+              <div className='bg-black rounded-xl h-[250px] md:h-[280px] pt-[25px] pr-[25px] pb-[30px] pl-[40px] md:pl-[70px] shadow-lg'>
                 <QRCode
                   size={100}
-                  className="ml-auto"
-                  value={`https://ecard.ezapp.vn/profile/${card.short}`}
-                ></QRCode>
-                <h5 className="text-white font-bold text-[18px] md:text-[24px] uppercase mt-[40px] mb-[0]">
+                  className='ml-auto'
+                  value={`https://ecard.ezapp.vn/profile/${card.short}`}></QRCode>
+                <h5 className='text-white font-bold text-[18px] md:text-[24px] uppercase mt-[40px] mb-[0]'>
                   {card.name}
                 </h5>
-                <p className="font-medium text-white uppercase tracking-[2px]">
+                <p className='font-medium text-white uppercase tracking-[2px]'>
                   {card.position}
                 </p>
               </div>
-              <div className="mt-[15px] flex gap-x-[10px] items-center">
-                <Button type="primary">
-                  <Link to={`/profile/${card.short}`} target="_blank">
+              <div className='mt-[15px] flex gap-x-[10px] items-center'>
+                <Button type='primary'>
+                  <Link to={`/profile/${card.short}`} target='_blank'>
                     Xem ECard
                   </Link>
                 </Button>
-                <Button type="primary">
+                <Button type='primary'>
                   <Link to={`/update-profile/${card._id.toString()}`}>
                     Cập Nhật
                   </Link>
                 </Button>
-                <Button
-                  type="primary"
-                  danger
-                  onClick={() => {
+                <Popconfirm
+                  title='Bạn có thật sự muốn xoá?'
+                  onConfirm={() => {
                     handleDelete(card._id);
                   }}
-                >
-                  Xoá
-                </Button>
+                  okText='Có'
+                  cancelText='Không'>
+                  <Button type='primary' danger>
+                    Xoá
+                  </Button>
+                </Popconfirm>
               </div>
             </div>
           ))}
