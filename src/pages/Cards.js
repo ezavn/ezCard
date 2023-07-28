@@ -41,7 +41,15 @@ function Cards() {
     );
   };
   const handleDelete = id => {
-    dispatch(deleteCard({ mongo, id }));
+    dispatch(
+      updateCard({
+        mongo,
+        id: id,
+        update: {
+          deleted: true,
+        },
+      })
+    );
   };
   const handleUpdate = entity => {
     dispatch(

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import "./CardProfile.css";
+import "./style.css";
 
 export default function CardProfile({ card }) {
   const [download, setDownload] = useState();
@@ -64,53 +64,6 @@ END:VCARD
 
   return (
     <div className='relative card-container'>
-      {/* <div className="card" data-state="#about">
-        <div className="card-header mb-[70px]">
-          <div className="card-cover"></div>
-          <img className="card-avatar" src={card?.avatar} alt="avatar" />
-          <h1 className="card-fullname">{card.name}</h1>
-          <h2 className="card-company">{card.company}</h2>
-          <h2 className="card-jobtitle">{card.position}</h2>
-        </div>
-        <div className="card-main">
-          <div className="card-section is-active" id="about">
-            <div className="card-social">
-              <a href={card?.facebook} target="_blank">
-                <img src="/icons/facebook.png" alt="" />
-              </a>
-              <a href={`http://zalo.me/${card?.zalo}`} target="_blank">
-                <img src="/icons/zalo.png" alt="" />
-              </a>
-              <a href={`viber://add?number=84${card?.viber}`}>
-                <img src="/icons/viber.png" alt="" />
-              </a>
-              <a href={`mailto:${card?.youtube}`}>
-                <img src="/icons/mail.png" alt="" />
-              </a>
-            </div>
-          </div>
-          <div className="card-buttons">
-            <a
-              onClick={() => activeLink1(true)}
-              className={`${showLink1 ? "is-active" : ""}`}
-              href={card?.website}
-              target="_blank"
-              data-section="#experience"
-            >
-              WEBSITE
-            </a>
-            <a
-              onClick={() => activeLink2(true)}
-              className={`${showLink2 ? "is-active" : ""}`}
-              href={card?.profile}
-              target="_blank"
-              data-section="#experience"
-            >
-              HỒ SƠ NĂNG LỰC
-            </a>
-          </div>
-        </div>
-      </div> */}
       <div className='ecard'>
         <div className='ecard-header'>
           <div className='ecard-cover'></div>
@@ -120,7 +73,10 @@ END:VCARD
               alt='avatar'
             />
           </div>
-          <h1 className='ecard-fullname'>{card.name}</h1>
+          <h1 className='ecard-fullname'>
+            {card.name}
+            Card 2
+          </h1>
           <h2 className='ecard-company'>{card.company}</h2>
           <h2 className='ecard-jobtitle'>{card.position}</h2>
         </div>
