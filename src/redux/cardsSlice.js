@@ -6,7 +6,7 @@ import {
 
 //Entity Adapter
 const cardsAdapter = createEntityAdapter({
-  selectId: (entity) => entity._id,
+  selectId: entity => entity._id,
   sortComparer: (a, b) => b._id.toString().localeCompare(a._id.toString()),
 });
 
@@ -216,9 +216,12 @@ export const deleteCards = createAsyncThunk(
 );
 
 //Selector
-const cardsSelectors = cardsAdapter.getSelectors((state) => state.cards);
-export const selectCards = (state) => cardsSelectors.selectAll(state);
-export const selectCardById = (id) => (state) =>
+const cardsSelectors = cardsAdapter.getSelectors(state => state.cards);
+export const selectCards = state =>
+  cardsSelectors
+    .selectAll(state)
+    .filter(card => !card.deleted || card.deleted == false);
+export const selectCardById = id => state =>
   cardsSelectors.selectById(state, id);
 
 export default cardsSlice;
