@@ -304,7 +304,9 @@ export default function UpdateProfile() {
           <Affix offsetTop={10}>
             <div className="flex items-center justify-center flex-col relative mobile-block w-[340px] md:w-[375px] h-[720px] border-solid border-[8px] border-[#021d48] rounded-[40px] overflow-y-auto">
               <div className="mobile-block-top"></div>
-              <CardProfile card={card} />
+              <div className="w-full h-full">
+                <CardProfile card={card} />
+              </div>
             </div>
           </Affix>
         </div>
