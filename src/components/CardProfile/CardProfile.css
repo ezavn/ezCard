@@ -126,9 +126,9 @@
 .ecard-social a:last-child {
   margin-right: 0;
 }
-.ecard-social img {
-  width: 18px;
-  height: 18px;
+.ecard-social a img {
+  width: 20px;
+  height: 20px;
 }
 
 .ecard-buttons {

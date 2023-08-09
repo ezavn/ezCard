@@ -49,6 +49,8 @@ URL;TYPE=Facebook:${card?.facebook}
 URL;TYPE=Zalo:https://zalo.me/${card?.zalo}
 URL;TYPE=Viber:viber://chat?number=+84${card?.viber}
 URL;TYPE=Whatsapp:https://wa.me/${card?.whatsapp}
+URL;TYPE=Line:https://line.me/R/ti/p/${card?.line}
+URL;TYPE=WeChat:weixin://dl/chat?${card?.wechat}
 END:VCARD
       `,
         ],
@@ -119,6 +121,19 @@ END:VCARD
                   target="_blank"
                 >
                   <img src="/icons/whatsapp.png" alt="" />
+                </a>
+              )}
+              {card?.line && (
+                <a
+                  href={`https://line.me/R/ti/p/${card?.line}`}
+                  target="_blank"
+                >
+                  <img src="/icons/line.png" alt="" />
+                </a>
+              )}
+              {card?.wechat && (
+                <a href={`weixin://dl/chat?${card?.wechat}`} target="_blank">
+                  <img src="/icons/wechat.png" alt="" />
                 </a>
               )}
             </div>

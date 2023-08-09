@@ -263,6 +263,19 @@ export default function UpdateProfile() {
                   <Input placeholder="Nhập số Whatsapp" />
                 </Form.Item>
               </Col>
+              <Col xl={12} xs={24}>
+                <Form.Item name="line" label="Line">
+                  <Input placeholder="Nhập số Line" />
+                </Form.Item>
+              </Col>
+            </Row>
+
+            <Row gutter={20}>
+              <Col xl={12} xs={24}>
+                <Form.Item name="wechat" label="WeChat">
+                  <Input placeholder="Nhập số WeChat" />
+                </Form.Item>
+              </Col>
             </Row>
 
             <Form.Item name="desctitle" label="Tiêu đề mô tả">
