@@ -173,7 +173,7 @@ END:VCARD
               <a
                 onClick={() => activeLink2(true)}
                 className={`${showLink3 ? "is-active" : ""}`}
-                href={card?.profile}
+                href={card?.profileVN}
                 target="_blank"
                 data-section="#experience"
               >
@@ -184,7 +184,7 @@ END:VCARD
               <a
                 onClick={() => activeLink2(true)}
                 className={`${showLink4 ? "is-active" : ""}`}
-                href={card?.profile}
+                href={card?.profileEN}
                 target="_blank"
                 data-section="#experience"
               >
