@@ -7,22 +7,32 @@ export default function CardProfile({ card }) {
   const [showLink1, setShowLink1] = useState(false);
   const [showLink2, setShowLink2] = useState(false);
   const [showLink3, setShowLink3] = useState(false);
+  const [showLink4, setShowLink4] = useState(false);
   console.log({ card });
 
   const activeLink1 = () => {
     setShowLink1(true);
     setShowLink2(false);
     setShowLink3(false);
+    setShowLink4(false);
   };
   const activeLink2 = () => {
     setShowLink1(false);
     setShowLink2(true);
     setShowLink3(false);
+    setShowLink4(false);
   };
   const activeLink3 = () => {
     setShowLink1(false);
     setShowLink2(false);
     setShowLink3(true);
+    setShowLink4(false);
+  };
+  const activeLink4 = () => {
+    setShowLink1(false);
+    setShowLink2(false);
+    setShowLink3(false);
+    setShowLink4(true);
   };
 
   function handleVcardDownload() {
@@ -148,15 +158,39 @@ END:VCARD
             >
               WEBSITE
             </a>
-            <a
-              onClick={() => activeLink2(true)}
-              className={`${showLink2 ? "is-active" : ""}`}
-              href={card?.profile}
-              target="_blank"
-              data-section="#experience"
-            >
-              HỒ SƠ NĂNG LỰC
-            </a>
+            {card?.profile && (
+              <a
+                onClick={() => activeLink2(true)}
+                className={`${showLink2 ? "is-active" : ""}`}
+                href={card?.profile}
+                target="_blank"
+                data-section="#experience"
+              >
+                HỒ SƠ NĂNG LỰC
+              </a>
+            )}
+            {card?.profileVN && (
+              <a
+                onClick={() => activeLink2(true)}
+                className={`${showLink3 ? "is-active" : ""}`}
+                href={card?.profile}
+                target="_blank"
+                data-section="#experience"
+              >
+                Profile VN
+              </a>
+            )}
+            {card?.profileEN && (
+              <a
+                onClick={() => activeLink2(true)}
+                className={`${showLink4 ? "is-active" : ""}`}
+                href={card?.profile}
+                target="_blank"
+                data-section="#experience"
+              >
+                Profile EN
+              </a>
+            )}
           </div>
         </div>
       </div>

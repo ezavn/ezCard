@@ -287,6 +287,20 @@ const AddProfile = () => {
             </Col>
           </Row>
 
+          <Row gutter={20}>
+            <Col xl={12} xs={24}>
+              <Form.Item name="profileVN" label="Profile VN">
+                <Input placeholder="Nhập link của bạn" />
+              </Form.Item>
+            </Col>
+
+            <Col xl={12} xs={24}>
+              <Form.Item name="profileEN" label="Profile EN">
+                <Input placeholder="Nhập link của bạn" />
+              </Form.Item>
+            </Col>
+          </Row>
+
           {/* <Row gutter={20}>
             <Col xl={12} xs={24}>
               <Form.Item name="brochure" label="Brochure Link">
